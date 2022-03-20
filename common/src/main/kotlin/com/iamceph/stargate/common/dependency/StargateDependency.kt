@@ -8,8 +8,6 @@ interface StargateDependency {
     val name: String
     val version: String?
 
-    fun hasVersion(): Boolean = version != null
-
     fun versionModifier(): Function<String, String> {
         return Function { it }
     }

@@ -6,11 +6,13 @@ data class StargateDependencyBuilder(
     var version: String? = null
 ) {
 
-    constructor(origin: StargateDependency): this(origin.group, origin.name, origin.version)
+    constructor(origin: StargateDependency) : this(origin.group, origin.name, origin.version)
 
     fun build(): StargateDependency {
-        val group = group ?: throw NullPointerException("Group is not defined.")
-        val name = name ?: throw NullPointerException("Name is not defined.")
-        return StargateDependencyImpl(group, name, version)
+        return StargateDependencyImpl(
+            group ?: throw NullPointerException("Group is not defined."),
+            name ?: throw NullPointerException("Name is not defined."),
+            version
+        )
     }
 }
